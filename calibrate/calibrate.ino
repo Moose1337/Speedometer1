@@ -1,8 +1,10 @@
 #include "SevSeg.h"
 SevSeg sevseg; //Initiate a seven segment controller object
+int analogPin(A0);
+int val = 0;
 
-
-void setup() {
+void setup() 
+{
     byte numDigits = 4;  
     byte digitPins[] = {1, 2, 3, 4};
     byte segmentPins[] = {5, 6, 7, 8, 9, 10, 11, 12};
@@ -12,7 +14,10 @@ void setup() {
     sevseg.begin(COMMON_CATHODE, numDigits, digitPins, segmentPins, resistorsOnSegments);
     sevseg.setBrightness(100);
 }
-void loop() {
-    sevseg.setNumber(1234);
+void loop() 
+{
+    val = analogRead(analogPin);
+    sevseg.setNumber(val/100);
     sevseg.refreshDisplay(); // Must run repeatedly
 }
+
