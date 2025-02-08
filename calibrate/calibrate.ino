@@ -6,7 +6,7 @@ int analogPin0(A0);
 int analogPin1(A1);
 int valOflight = 0;
 int slowdown = 5;
-int DARK_TH = 500;
+int DARK_TH = 700;//previously 500
 unsigned long startTime = 0;
 bool timerStarted = false;
 
